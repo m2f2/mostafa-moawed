@@ -7,6 +7,18 @@ export const pinnedRepos: pinnedRepoType[] = [
     image:
       'rwa.png',
     longDescription: `This Responsive Web Design project showcases expertise in crafting user-centric layouts with Bootstrap. The dynamic navigation bar seamlessly adapts across devices, while the robust grid system ensures optimal content organization on any screen size. Engaging Bootstrap cards elegantly present information, enhancing visual appeal. Interactive elements like buttons and forms elevate functionality, while meticulously applied media queries fine-tune the design at various breakpoints. This project exemplifies a deep understanding of responsive principles, delivering an exceptional user experience regardless of device.`,
+    url:"https://github.com/m2f2/food-delivery"
+  },
+
+  {
+    id: `food-delivery`,
+    stack: ['React.JS'],
+    name: `Food Delivery`,
+    deployedLink: 'https://food-delivery-five-nu.vercel.app/',
+    image:
+      'food-delivery.png',
+    longDescription: `The website is a food delivery platform showcasing various meal options with a clean, modern design. It offers easy navigation for browsing different food categories. The layout emphasizes colorful images and call-to-action buttons, making it visually appealing and user-friendly for ordering food online. `,
+    url:"https://github.com/m2f2/food-delivery"
   },
   {
     id: `EQ3`,
@@ -16,6 +28,7 @@ export const pinnedRepos: pinnedRepoType[] = [
     image:
       'eq3.png',
     longDescription: `I created a clone of the EQ3 website using Material UI as part of the day 2 task in the ITI Material UI course. The project involved replicating the design and layout of EQ3 using Material UI’s pre-built components, focusing on delivering a responsive and visually appealing interface that reflects the modern style of the original site. Key elements included navigation, product display sections, and interactive components like buttons and forms, all styled with Material UI's flexible theming options.`,
+    url:"https://github.com/m2f2/mui-day-2"
   },
   {
     id: `codementor`,
@@ -25,6 +38,7 @@ export const pinnedRepos: pinnedRepoType[] = [
     image:
       'codementor.png',
     longDescription: `I created a clone of Codementor using Material UI, which is a design framework that provides pre-built, modern components to build a smooth and user-friendly interface. In this project, I utilized Material UI components such as buttons, forms, tables, and menus to design a similar interface to Codementor, a platform that connects developers with mentors in the programming field.`,
+    url:"https://github.com/m2f2/mui-day-1"
   },
   {
     id: `clothing-store`,
@@ -34,6 +48,7 @@ export const pinnedRepos: pinnedRepoType[] = [
     image:
       'clothing-store.png',
     longDescription: `I developed a modern e-commerce website for clothing using React and Firebase as the backend. The project incorporates Sass for efficient and modular styling, ensuring a responsive and visually appealing design. I implemented state management using Redux Toolkit for seamless product updates and user interactions. The website features functionalities such as product browsing, shopping cart management, and secure user authentication. Firebase was used to handle real-time database operations and user authentication.`,
+    url:"https://github.com/m2f2/e-commerce-crown"
   },
 ];
 
@@ -44,4 +59,5 @@ export interface pinnedRepoType {
   deployedLink?: string;
   longDescription: string;
   stack?: string[];
+  url?: string;
 }

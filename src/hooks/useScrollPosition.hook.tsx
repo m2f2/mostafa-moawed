@@ -12,13 +12,12 @@ export default function useScrollPosition(): { y: number; max: number } {
   useEffect(() => {
     window.addEventListener('scroll', handleScroll, { passive: true });
 
-    // Call handler initially to set position
     handleScroll();
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []); // Empty array means this runs once on mount and cleanup on unmount
+  }, []); 
 
   return { y: scrollPosition.y, max: scrollPosition.max };
 }

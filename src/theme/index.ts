@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ChakraTheme, extendTheme, ThemeComponentProps } from '@chakra-ui/react';
-import { transparentize, mode, StyleFunctionProps } from '@chakra-ui/theme-tools';
-
+import { mode, StyleFunctionProps } from '@chakra-ui/theme-tools';
 
 const theme = extendTheme({
   config: {
@@ -26,17 +25,34 @@ const theme = extendTheme({
     Button: {
       variants: {
         ghostAlwaysOn: (props: ThemeComponentProps<ChakraTheme>) => {
-          const darkBg = transparentize(`${props.colorScheme}.200`, 0.12)(props.theme);
-          const darkHoverBg = transparentize(`${props.colorScheme}.200`, 0.24)(props.theme);
-          const darkActiveBg = transparentize(`${props.colorScheme}.200`, 0.36)(props.theme);
+          const getColorWithOpacity = (color: string, opacity: number) => {
+            const [r, g, b] = props.theme.colors[color]
+              .toString()
+              .replace('rgb(', '')
+              .replace(')', '')
+              .split(',')
+              .map(Number); 
+            return `rgba(${r}, ${g}, ${b}, ${opacity})`; 
+          };
+
           return {
-            color: mode(`${props.colorScheme}.600`, `${props.colorScheme}.200`)(props),
-            bgColor: props.colorMode === 'light' ? `${props.colorScheme}.50` : darkBg,
+            color: mode(`${props.colorScheme}.600`, `${props.colorScheme}.200`)(
+              props
+            ),
+            bgColor: props.colorMode === 'light'
+              ? `${props.colorScheme}.50`
+              : getColorWithOpacity(`${props.colorScheme}.200`, 0.12), 
             _hover: {
-              bgColor: mode(`${props.colorScheme}.100`, darkHoverBg)(props),
+              bgColor: mode(
+                `${props.colorScheme}.100`,
+                getColorWithOpacity(`${props.colorScheme}.200`, 0.24) 
+              )(props),
             },
             _active: {
-              bgColor: mode(`${props.colorScheme}.200`, darkActiveBg)(props),
+              bgColor: mode(
+                `${props.colorScheme}.200`,
+                getColorWithOpacity(`${props.colorScheme}.200`, 0.36) 
+              )(props),
             },
           };
         },

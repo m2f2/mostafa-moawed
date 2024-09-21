@@ -59,9 +59,7 @@ function Projects(): React.ReactElement {
               />
             ))}
         </VStack>
-        <LineHeading fontSize={{ base: `5xl`, lg: `5xl` }} textAlign="center">
-          Repositories
-        </LineHeading>
+        
         <Button
           as="a"
           href="https://github.com/m2f2"

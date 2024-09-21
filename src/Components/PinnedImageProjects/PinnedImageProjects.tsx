@@ -10,9 +10,9 @@ import {
   Stack,
   Flex,
 } from '@chakra-ui/react';
-import { FaExternalLinkAlt } from 'react-icons/fa';
+import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
 import { pinnedRepoType } from '../../data/pinnedRepos';
-import ImageCard from '../ImageCard/ImageCard';
+import Tags from '../Tags/Tags';
 
 
 interface PinnedImageProjectsProps {
@@ -23,7 +23,7 @@ interface PinnedImageProjectsProps {
 const PinnedImageProjects = ({
   projectData,
   left,
-}: PinnedImageProjectsProps): JSX.Element => {
+}: PinnedImageProjectsProps) => {
   const { colorMode } = useColorMode();
   const bp = useBreakpointValue({ base: `base`, lg: `lg` });
 
@@ -38,7 +38,6 @@ const PinnedImageProjects = ({
               border="1px solid"
               borderColor={colorMode === 'light' ? `gray.200` : `gray.600`}
             >
-              {/* Replace next/image with a standard img tag */}
               <img
                 alt={`${projectData?.name} screenshot`}
                 src={projectData?.image || ''}
@@ -69,21 +68,21 @@ const PinnedImageProjects = ({
             <Stack width="full">
               <Flex justifyContent="space-between">
                 <Heading isTruncated>{projectData.name}</Heading>
-                <Stack isInline justifyContent="flex-end" alignItems="center" spacing={4} mr={1}>
-                  {/* {repo?.html_url && (
-                    <ChakraLink href={repo.html_url} isExternal className={`hover-link-${colorMode}`}>
+                <Flex  justifyContent="flex-end" alignItems="center" gap='3' mr={1}>
+                  {projectData?.url && (
+                    <ChakraLink href={projectData.url} isExternal className={`hover-link-${colorMode}`}>
                       <FaGithub size={23} />
                     </ChakraLink>
-                  )} */}
+                  )}
                   {projectData?.deployedLink && (
                     <ChakraLink href={projectData.deployedLink} isExternal className={`hover-link-${colorMode}`}>
                       <FaExternalLinkAlt size={20} />
                     </ChakraLink>
                   )}
-                </Stack>
+                </Flex>
               </Flex>
 
-              {/* <Tags tags={projectData?.stack} /> */}
+              <Tags tags={projectData?.stack || []} />
             </Stack>
             <Text height="full" pt={2}>
               {projectData.longDescription}
@@ -93,8 +92,6 @@ const PinnedImageProjects = ({
       </Box>
     );
   }
-
-  return <ImageCard projectData={projectData}  />;
 };
 
 export default PinnedImageProjects;
