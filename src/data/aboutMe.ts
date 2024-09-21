@@ -1,4 +1,4 @@
-const style = (props) =>
+const style = (props: { colorMode: string; }) =>
   `color: var(--chakra-colors-brand-${
     props.colorMode === 'light' ? '600' : '300'
   });font-weight: 500;`;

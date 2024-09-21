@@ -10,22 +10,18 @@ import {
   Stack,
   Flex,
 } from '@chakra-ui/react';
-import React from 'react';
-import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
-import ImageCard from '../ImageCard';
-import Tags from '../Tags';
+import { FaExternalLinkAlt } from 'react-icons/fa';
 import { pinnedRepoType } from '../../data/pinnedRepos';
-import { repoType } from '../../data/repoType';
+import ImageCard from '../ImageCard/ImageCard';
+
 
 interface PinnedImageProjectsProps {
-  repo: repoType;
   projectData: pinnedRepoType;
   left: boolean;
 }
 
 const PinnedImageProjects = ({
   projectData,
-  repo,
   left,
 }: PinnedImageProjectsProps): JSX.Element => {
   const { colorMode } = useColorMode();
@@ -74,11 +70,11 @@ const PinnedImageProjects = ({
               <Flex justifyContent="space-between">
                 <Heading isTruncated>{projectData.name}</Heading>
                 <Stack isInline justifyContent="flex-end" alignItems="center" spacing={4} mr={1}>
-                  {repo?.html_url && (
+                  {/* {repo?.html_url && (
                     <ChakraLink href={repo.html_url} isExternal className={`hover-link-${colorMode}`}>
                       <FaGithub size={23} />
                     </ChakraLink>
-                  )}
+                  )} */}
                   {projectData?.deployedLink && (
                     <ChakraLink href={projectData.deployedLink} isExternal className={`hover-link-${colorMode}`}>
                       <FaExternalLinkAlt size={20} />
@@ -87,7 +83,7 @@ const PinnedImageProjects = ({
                 </Stack>
               </Flex>
 
-              <Tags tags={projectData?.stack} />
+              {/* <Tags tags={projectData?.stack} /> */}
             </Stack>
             <Text height="full" pt={2}>
               {projectData.longDescription}
@@ -98,7 +94,7 @@ const PinnedImageProjects = ({
     );
   }
 
-  return <ImageCard projectData={projectData} repo={repo} />;
+  return <ImageCard projectData={projectData}  />;
 };
 
 export default PinnedImageProjects;

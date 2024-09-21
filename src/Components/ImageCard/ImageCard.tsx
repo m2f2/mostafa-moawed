@@ -1,28 +1,26 @@
 import {
   AspectRatio,
   Box,
-  useColorModeValue,
-  Flex,
-  VStack,
-  Heading,
   Link as ChakraLink,
-  Text,
+  Flex,
+  Heading,
   Stack,
+  Text,
   useColorMode,
+  useColorModeValue,
+  VStack,
 } from '@chakra-ui/react';
-import React from 'react';
-import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
-import Tags from '../Tags';
-import { repoType } from '../../data/repoType';
+import { FaExternalLinkAlt } from 'react-icons/fa';
+
 import { pinnedRepoType } from '../../data/pinnedRepos';
 
 
 interface ImageCardProps {
   projectData: pinnedRepoType;
-  repo: repoType;
+  
 }
 
-const ImageCard = ({ projectData, repo }: ImageCardProps): JSX.Element => {
+const ImageCard = ({ projectData }: ImageCardProps): JSX.Element => {
   const { colorMode } = useColorMode();
 
   return (
@@ -66,11 +64,11 @@ const ImageCard = ({ projectData, repo }: ImageCardProps): JSX.Element => {
             alignItems="center"
             spacing={4}
           >
-            {repo?.html_url && (
+            {/* {repo?.html_url && (
               <ChakraLink href={repo.html_url} isExternal className={`hover-link-${colorMode}`}>
                 <FaGithub size={23} />
               </ChakraLink>
-            )}
+            )} */}
             {projectData?.deployedLink && (
               <ChakraLink href={projectData.deployedLink} isExternal className={`hover-link-${colorMode}`}>
                 <FaExternalLinkAlt size={20} />
@@ -86,7 +84,7 @@ const ImageCard = ({ projectData, repo }: ImageCardProps): JSX.Element => {
           textAlign="left"
           color={useColorModeValue(`gray.500`, `gray.500`)}
         >
-          <Tags tags={projectData?.stack} />
+          {/* <Tags tags={projectData?.stack} /> */}
         </Box>
         <Text pt={2}>{projectData.longDescription}</Text>
       </VStack>

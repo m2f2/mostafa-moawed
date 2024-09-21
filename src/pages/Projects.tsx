@@ -9,21 +9,10 @@ import {
 import React from 'react';
 import { FaGithub } from 'react-icons/fa';
 import LineHeading from '../Components/LineHeading/LineHeading';
-import RepoCard from '../Components/RepoCard/RepoCard';
 import { pinnedRepos, pinnedRepoType } from '../data/pinnedRepos';
-import { repoType } from '../data/repoType';
 import PinnedProjects from '../Components/PinnedProjects/PinnedProjects';
 
-const repos: repoType[] = [
-  {
-    id: 1,
-    name: "sample-repo",
-    created_at: "2023-06-15T00:00:00Z",
-    pushed_at: "2023-08-10T00:00:00Z",
-    description: "This is a sample repository",
-    stars: 100,
-  },
-];
+
 
 function Projects(): React.ReactElement {
   return (
@@ -65,10 +54,6 @@ function Projects(): React.ReactElement {
             .map((data: pinnedRepoType, index) => (
               <PinnedProjects
                 key={index.toString()}
-                repo={repos.find(
-                  (x: repoType) =>
-                    x.name.toLowerCase() === data.id.toLowerCase()
-                )}
                 left={index % 2 === 0}
                 projectData={data}
               />

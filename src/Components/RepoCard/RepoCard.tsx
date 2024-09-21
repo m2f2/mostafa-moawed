@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   Box,
   Stack,
@@ -7,7 +6,7 @@ import {
   useColorModeValue,
   VStack,
 } from '@chakra-ui/react';
-import { repoType } from '@/pages/api/github';
+import { repoType } from '../../data/repoType';
 
 interface RepoCardProps {
   repo: repoType;

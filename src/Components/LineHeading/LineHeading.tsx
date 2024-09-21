@@ -1,5 +1,4 @@
 import { Heading, HeadingProps, useColorModeValue } from '@chakra-ui/react'
-import React from 'react'
 
 const LineHeading = ({ children, ...props }: HeadingProps): JSX.Element => (
   <Heading

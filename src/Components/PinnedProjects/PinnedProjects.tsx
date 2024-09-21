@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   Box,
   Flex,
@@ -8,15 +7,13 @@ import {
   Link as ChakraLink,
   VStack,
 } from '@chakra-ui/react';
-import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
-import { repoType } from '../../data/repoType';
-import PinnedImageProjects from '../PinnedImageProjects';
-import Tags from '../Tags';
+import { FaExternalLinkAlt } from 'react-icons/fa';
 import { pinnedRepoType } from '../../data/pinnedRepos';
+
+import PinnedImageProjects from '../PinnedImageProjects/PinnedImageProjects';
 
 
 interface PinnedProjectsProps {
-  repo: repoType;
   projectData: pinnedRepoType;
   left: boolean;
 }
@@ -25,7 +22,7 @@ const PinnedProjects = ({projectData, left }: PinnedProjectsProps): JSX.Element 
   const { colorMode } = useColorMode();
 
   if (projectData && projectData?.image) {
-    return <PinnedImageProjects left={left}  projectData={projectData} />;
+    return <PinnedImageProjects  left={left}  projectData={projectData} />;
   }
 
   return (
@@ -57,11 +54,7 @@ const PinnedProjects = ({projectData, left }: PinnedProjectsProps): JSX.Element 
               {projectData.name}
             </Text>
             <Stack isInline justifyContent="flex-end" alignItems="center" spacing={4} mr={1}>
-              {repo?.html_url && (
-                <ChakraLink href={repo.html_url} isExternal className={`hover-link-${colorMode}`}>
-                  <FaGithub size={23} />
-                </ChakraLink>
-              )}
+    
               {projectData?.deployedLink && (
                 <ChakraLink href={projectData.deployedLink} isExternal className={`hover-link-${colorMode}`}>
                   <FaExternalLinkAlt size={20} />
@@ -70,7 +63,6 @@ const PinnedProjects = ({projectData, left }: PinnedProjectsProps): JSX.Element 
             </Stack>
           </Flex>
         </Flex>
-        <Tags tags={projectData?.stack} />
         <Text
           color={colorMode === 'light' ? `gray.600` : `gray.300`}
           height="100%"

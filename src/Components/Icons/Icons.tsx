@@ -1,5 +1,4 @@
 import { Icon } from '@chakra-ui/react';
-import React from 'react';
 
 export const SemanticIcon = (): JSX.Element => (
   <Icon viewBox='0 0 256 256' marginInlineEnd={'6px'} alignSelf='center'>

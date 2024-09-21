@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ChakraTheme, extendTheme, ThemeComponentProps } from '@chakra-ui/react';
-import { transparentize, mode } from '@chakra-ui/theme-tools';
+import { transparentize, mode, StyleFunctionProps } from '@chakra-ui/theme-tools';
 
 
 const theme = extendTheme({
@@ -8,7 +9,7 @@ const theme = extendTheme({
   },
   components: {
     Link: {
-      baseStyle: props => ({
+      baseStyle: (props: Record<string, any> | StyleFunctionProps) => ({
         color: mode('brand.600', 'brand.300')(props),
       }),
     },
