@@ -12,6 +12,7 @@ import {
 } from '@chakra-ui/react';
 import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
 import { pinnedRepoType } from '../../data/pinnedRepos';
+import ImageCard from '../ImageCard/ImageCard';
 import Tags from '../Tags/Tags';
 
 
@@ -23,7 +24,7 @@ interface PinnedImageProjectsProps {
 const PinnedImageProjects = ({
   projectData,
   left,
-}: PinnedImageProjectsProps) => {
+}: PinnedImageProjectsProps): JSX.Element => {
   const { colorMode } = useColorMode();
   const bp = useBreakpointValue({ base: `base`, lg: `lg` });
 
@@ -92,6 +93,8 @@ const PinnedImageProjects = ({
       </Box>
     );
   }
+
+  return <ImageCard projectData={projectData}  />;
 };
 
 export default PinnedImageProjects;
