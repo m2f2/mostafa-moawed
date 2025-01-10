@@ -52,7 +52,7 @@ export const pinnedRepos: pinnedRepoType[] = [
   },
   {
     id: `airbnb-clone`,
-    stack: ['Next.JS', 'NestJS','axios','next-auth', 'react-hot-toast', 'multer', 'Mongodb', 'TailwindCss'],
+    stack: ['Next.JS', 'NestJS','Mongodb', 'TailwindCss'],
     name: `Airbnb Clone`,
     deployedLink: 'https://airbnb-clone-nextjs-henna.vercel.app/en',
     image:
