@@ -50,6 +50,16 @@ export const pinnedRepos: pinnedRepoType[] = [
     longDescription: `I developed a modern e-commerce website for clothing using React and Firebase as the backend. The project incorporates Sass for efficient and modular styling, ensuring a responsive and visually appealing design. I implemented state management using Redux Toolkit for seamless product updates and user interactions. The website features functionalities such as product browsing, shopping cart management, and secure user authentication. Firebase was used to handle real-time database operations and user authentication.`,
     url:"https://github.com/m2f2/e-commerce-crown"
   },
+  {
+    id: `airbnb-clone`,
+    stack: ['Next.JS', 'NestJS','axios','next-auth', 'react-hot-toast', 'multer', 'Mongodb', 'TailwindCss'],
+    name: `Airbnb Clone`,
+    deployedLink: 'https://airbnb-clone-nextjs-henna.vercel.app/en',
+    image:
+      'airbnb-clone.png',
+    longDescription: `I created a feature-rich Airbnb clone using Next.js for the frontend and NestJS for the backend. The project integrates Google Sign-In with NextAuth for seamless and secure authentication. Leveraging TailwindCSS, I ensured a clean and responsive design, while React Hot Toast provides user-friendly notifications. The app supports functionalities such as listing accommodations, browsing properties, and booking with real-time updates. File uploads for property images are managed using Multer, and data is stored efficiently in MongoDB. The backend, built with NestJS, handles booking operations, user authentication, and API endpoints with robust performance.`,
+    url:"https://github.com/m2f2/airbnb-clone-nextjs"
+  },
 ];
 
 export interface pinnedRepoType {
